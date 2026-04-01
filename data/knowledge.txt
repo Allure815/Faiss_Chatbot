@@ -1,0 +1,6 @@
+documents = [
+"Python is a high-level programming language used for artificial intelligence, data science, and automation.",
+"SQL is a structured query language used to store, retrieve, and manage data in relational databases.",
+"FAISS is a vector database library developed by Facebook for fast similarity search and clustering of dense vectors.",
+"Streamlit is a Python framework that allows you to quickly build interactive web applications for machine learning projects."
+]

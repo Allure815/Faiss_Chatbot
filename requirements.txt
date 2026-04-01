@@ -1,0 +1,17 @@
+# FAISS for vector search
+faiss-cpu==1.7.4
+
+# LangChain for chatbot orchestration
+langchain
+
+# Transformers for embeddings & model
+transformers==4.33.2
+
+# PyTorch for model execution
+torch==2.1.0
+
+# PDF handling
+PyPDF2==3.0.1
+
+# Sentence embeddings
+sentence-transformers==2.2.2
