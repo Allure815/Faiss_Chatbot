@@ -1,31 +1,53 @@
 
-FAISS Knowledge-Based Chatbot
 
-Overview
-This project is a simple AI knowledge-based chatbot that retrieves relevant information from a predefined text knowledge base.
+🤖 FAISS Semantic Search Chatbot
 
-Instead of traditional keyword matching, the chatbot converts text into vector embeddings and uses similarity search to find the most relevant answer.
+A semantic knowledge-retrieval chatbot that finds answers by meaning, not keywords — built on Sentence Transformer embeddings and a FAISS vector index.
 
-The chatbot is built using Python and provides a simple web interface where users can ask questions and receive relevant information from the stored knowledge base.
+Built end-to-end: embedding generation → FAISS index construction → similarity-search retrieval → interactive Streamlit app.
 
 ---
 
-Features
+💡 Why This Matters
 
-Semantic search using embeddings
-Fast similarity search using FAISS
-Interactive web interface built with Streamlit
-Simple knowledge base created using text data
+Keyword search fails the moment a question is phrased differently from the source text. This project solves that by converting both the knowledge base and the user's query into dense vector embeddings, then retrieving the closest match by semantic similarity — the same core retrieval technique behind modern RAG (Retrieval-Augmented Generation) systems used in production AI search and support tools.
+
+Input: a natural-language question → Output: the most semantically relevant document(s) from the knowledge base.
+
+----
+
+
+⚙️ Key Features
+
+
+🔍 Semantic search via all-MiniLM-L6-v2 sentence embeddings (no keyword matching)
+⚡ Fast nearest-neighbor retrieval using a FAISS IndexFlatL2 vector index
+🎨 Interactive Streamlit UI — ask a question, get ranked relevant results
+🧩 Simple, extensible knowledge base structure — add documents and rebuild the index in seconds
 
 ---
 
-Technologies Used
 
-Python
-FAISS (vector similarity search library)
-Sentence Transformers (embedding model library)
-Streamlit (Python web application framework)
+🧠 How It Works
 
+
+Each document in the knowledge base is embedded into a dense vector using a Sentence Transformer model
+Embeddings are indexed with FAISS for fast similarity search
+A user's question is embedded using the same model
+FAISS retrieves the nearest document vector(s) by L2 distance
+The most relevant document is returned and displayed in the UI
+
+
+This is a retrieval system — it returns the most relevant stored knowledge directly, rather than generating a new answer with an LLM. That retrieval layer is exactly the foundation a generative RAG pipeline is built on top of.
+
+
+🛠️ Tech Stack
+
+
+Vector Search: FAISS
+Embeddings: Sentence Transformers (all-MiniLM-L6-v2)
+Interface: Streamlit
+Language: Python
 ---
 
 How It Works
@@ -54,27 +76,34 @@ https://github.com/Allure815/Faiss_Chatbot/blob/main/Demo-FAISS.mp4
 
 ---
 
-Installation
 
-Install the required dependencies using:
+▶️ Run It Locally
 
+bash# Clone
+git clone https://github.com/Allure815/Faiss_Chatbot.git
+cd Faiss_Chatbot
+
+# Install dependencies
 pip install -r requirements.txt
 
----
-
-Run the Project
-
-First build the FAISS index:
-
+# Build the FAISS index
 python build_index.py
 
-Then run the chatbot application:
-
+# Launch the app
 streamlit run app.py
 
-The chatbot will open automatically in your web browser.
+The app opens automatically in your browser. Try questions like "What is Python?" or "What is FAISS?"
 
----
+
+🔭 What's Next
+
+
+Add an LLM generation layer on top of retrieval to turn this into a full RAG chatbot (answer synthesis, not just document lookup)
+Expand the knowledge base beyond the current sample set and support ingesting PDFs/docs directly
+Swap IndexFlatL2 for an approximate index (e.g. IndexIVFFlat) to scale to larger document collections
+Add source citations in the UI so users see exactly which document an answer came from
+
+-----
 
 Example Questions
 
@@ -86,5 +115,12 @@ What is FAISS?
 What is Streamlit?
 
 The chatbot will retrieve the most relevant information from its knowledge base.
+
+-----
+
+👤 Author
+
+Heeral — https://github.com/Allure815/
+---
 
 
