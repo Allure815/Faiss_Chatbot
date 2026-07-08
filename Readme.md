@@ -31,6 +31,7 @@ Input: a natural-language question → Output: the most semantically relevant do
 ---
 
 
+
 **🧠 How It Works
 **
 
@@ -47,6 +48,8 @@ Input: a natural-language question → Output: the most semantically relevant do
 
 This is a retrieval system — it returns the most relevant stored knowledge directly, rather than generating a new answer with an LLM. That retrieval layer is exactly the foundation a generative RAG pipeline is built on top of.
 
+----
+
 
 🛠️ **Tech Stack**
 
@@ -58,24 +61,6 @@ Embeddings: Sentence Transformers (all-MiniLM-L6-v2)
 Interface: Streamlit
 
 Language: Python
-
----
-
-
-
-**How It Works**
-
-1. A small text knowledge base is created inside the project.
-
-2. Each document in the knowledge base is converted into embeddings using a Sentence Transformer model.
-
-3. The embeddings are stored in a FAISS vector index.
-
-4. When a user asks a question, the query is also converted into an embedding.
-
-5. FAISS searches the vector index to find the most similar documents.
-
-6. The chatbot displays the most relevant knowledge to the user in the interface.
 
 ---
 
