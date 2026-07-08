@@ -52,11 +52,16 @@ This is a retrieval system — it returns the most relevant stored knowledge dir
 
 
 Vector Search: FAISS
+
 Embeddings: Sentence Transformers (all-MiniLM-L6-v2)
+
 Interface: Streamlit
+
 Language: Python
 
 ---
+
+
 
 **How It Works**
 
@@ -74,6 +79,8 @@ Language: Python
 
 ---
 
+
+
 **Demo Screenshot**
 https://github.com/Allure815/Faiss_Chatbot/blob/main/FAISS-ss.png
 
@@ -85,8 +92,8 @@ https://github.com/Allure815/Faiss_Chatbot/blob/main/Demo-FAISS.mp4
 ---
 
 
-**▶️ Run It Locally
-**
+****▶️ Run It Locally**
+
 bash# Clone
 git clone https://github.com/Allure815/Faiss_Chatbot.git
 cd Faiss_Chatbot
@@ -100,7 +107,11 @@ python build_index.py
 # Launch the app
 streamlit run app.py
 
+------
+
 The app opens automatically in your browser. Try questions like "What is Python?" or "What is FAISS?"
+
+---
 
 
 **🔭 What's Next**
@@ -113,14 +124,19 @@ Add source citations in the UI so users see exactly which document an answer cam
 
 -----
 
+
 **Example Questions**
 
 You can ask questions such as:
 
-What is Python?
-What is SQL?
-What is FAISS?
-What is Streamlit?
+-What is Python?
+
+-What is SQL?
+
+-What is FAISS?
+
+-What is Streamlit?
+
 
 The chatbot will retrieve the most relevant information from its knowledge base.
 
